@@ -43,6 +43,42 @@ int main() {
 				printf("/\n");
 				break;
 			}
+			case 2: {
+				printf("Enter a number: \n");
+				int num;
+				scanf("%d", &num);
+				while (num<=0) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &num);
+				}
+				int num_length=0;
+				int left_sum=0;
+				int right_sum=0;
+				int num_copy;
+				num_copy = num;
+				while (num_copy>0) {
+					num_copy/=10;
+					num_length++;
+				}
+				for (int i=0;i<num_length/2;i++) {
+					right_sum+=num%10;
+					num/=10;
+				}
+				if (num_length%2==1) {
+					num/=10;
+				}
+				for (int i=0;i<num_length/2;i++) {
+					left_sum+=num%10;
+					num/=10;
+				}
+				if (left_sum==right_sum) {
+					printf("This number is balanced and brings harmony!\n");
+				}
+				else {
+					printf("This number isn't balanced and destroys harmony.\n");
+				}
+				break;
+			}
 			case 7: {
 				return  0;
 			}
